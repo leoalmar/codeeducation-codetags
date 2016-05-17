@@ -1,5 +1,17 @@
 {
   "name": "leoalmar/codeeducation-codetags",
+  "type": "library",
+  "description": "Academic Package",
+  "keywords": ["codetags"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "leoalmar",
+      "email": "leonardoxsystems@gmail.com",
+      "homepage": "http://www.leoalmar.com",
+      "role": "Software Engineer"
+    }
+  ],
   "require": {
     "php": ">=5.5.9",
     "illuminate/contracts": "~5.2",
