@@ -1,6 +1,6 @@
 <?php
 
-namespace Leoalmar\CodeCategory\Providers;
+namespace Leoalmar\CodeTags\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
