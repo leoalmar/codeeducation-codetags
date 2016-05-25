@@ -15,8 +15,8 @@ class CreateLeoalmarTagsTable
 
             $table->string('name');
 
-            $table->integer('taggable_id')->unsigned()->index();
-            $table->string('taggable_type')->index();
+            $table->integer('taggable_id')->nullable()->unsigned()->index();
+            $table->string('taggable_type')->nullable()->index();
 
             $table->timestamps();
         });
