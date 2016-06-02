@@ -70,8 +70,4 @@ class TagTest extends AbstractTestCase
         $this->assertCount(1,$tagList);
     }
 
-    public function test_if_tag_belongs_to_class_that_was_assigned()
-    {
-        
-    }
 }

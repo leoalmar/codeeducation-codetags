@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <h3>
-                    Create Tag
+                    Tags
                     <div class="form-group pull-right">
                         <a href="{{ route('admin.tags.create') }}" class="btn btn-primary">Create Tag</a>
                     </div>
@@ -29,7 +29,16 @@
                 <tr>
                     <td>{{ $tag->id }}</td>
                     <td>{{ $tag->name }}</td>
-                    <td></td>
+                    <td>
+                        <a class="btn btn-small btn-info" href="{{ route('admin.tags.edit', $tag->id) }}"><i class="fa fa-fw fa-pencil"></i></a>
+
+                        {{ Form::open(['route' => ['admin.tags.delete', $tag->id], 'method' => 'DELETE', 'style' => 'display: inline;']) }}
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-fw fa-trash"></i>
+                        </button>
+                        {{ Form::close() }}
+
+                    </td>
                 </tr>
             @endforeach
             </tbody>
