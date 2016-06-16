@@ -5,6 +5,7 @@ namespace Leoalmar\CodeTags\Controllers;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Leoalmar\CodeTags\Repository\TagRepository;
 use Leoalmar\CodeTags\Models\Tag;
 
 class AdminTagsController extends Controller
@@ -16,19 +17,19 @@ class AdminTagsController extends Controller
     private $response;
     
     /**
-     * @var Tag
+     * @var TagRepository
      */
-    private $tag;
+    private $repository;
 
     /**
      * AdminTagsController constructor.
      * @param ResponseFactory $response
-     * @param Tag $tag
+     * @param Tag $repository
      */
-    public function __construct(ResponseFactory $response, Tag $tag)
+    public function __construct(ResponseFactory $response, TagRepository $repository)
     {
         $this->response = $response;
-        $this->tag = $tag;
+        $this->repository = $repository;
     }
 
     /**
@@ -36,7 +37,7 @@ class AdminTagsController extends Controller
      */
     public function index()
     {
-        $tags = $this->tag->all();
+        $tags = $this->repository->all();
         return $this->response->view('codetags::index', compact('tags'));
     }
 
@@ -45,7 +46,7 @@ class AdminTagsController extends Controller
      */
     public function create()
     {
-        $tags = $this->tag->all()->lists('name','id')->toArray();
+        $tags = $this->repository->all()->lists('name','id')->toArray();
         return $this->response->view('codetags::create', compact('tags'));
     }
 
@@ -55,7 +56,7 @@ class AdminTagsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->tag->create($request->all());
+        $this->repository->create($request->all());
         return redirect()->route('admin.tags.index');
     }
 
@@ -66,7 +67,7 @@ class AdminTagsController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $tag = $this->tag->find($id);
+        $tag = $this->repository->find($id);
         return $this->response->view('codetags::edit', compact('tag'));
     }
 
@@ -79,7 +80,7 @@ class AdminTagsController extends Controller
     {
         $data = $request->all();
         $data['active'] = isset($data['active']);
-        $this->tag->find($id)->update($data);
+        $this->repository->find($id)->update($data);
         return redirect()->route('admin.tags.index');
     }
 
@@ -90,7 +91,7 @@ class AdminTagsController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $this->tag->destroy($id);
+        $this->repository->destroy($id);
         return redirect()->route('admin.tags.index');
     }
 

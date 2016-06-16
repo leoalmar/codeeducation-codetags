@@ -61,7 +61,7 @@ class TagTest extends AbstractTestCase
         $this->assertEquals($messageBag, $tag->errors);
     }
     
-    public function test_check_if_a_category_can_be_persisted()
+    public function test_check_if_a_tag_can_be_persisted()
     {
         $tag = Tag::create(['name' => 'php','taggable_id' => 1, 'taggable_type' => 'App\User']);
         $this->assertEquals('php', $tag->name);

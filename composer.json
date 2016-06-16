@@ -22,7 +22,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Leoalmar\\CodeTags\\": "src/CodeTags"
+      "Leoalmar\\CodeTags\\": "src/CodeTags",
+      "Leoalmar\\CodeDatabase\\": "../codedatabase/src/CodeDatabase/"
     }
   },
   "require-dev": {
