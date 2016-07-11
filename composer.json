@@ -18,12 +18,12 @@
     "illuminate/http": "~5.2",
     "illuminate/support": "~5.2",
     "illuminate/database": "~5.2",
-    "cviebrock/eloquent-sluggable": "^3.0"
+    "cviebrock/eloquent-sluggable": "^3.0",
+    "leoalmar/codeeducation-codedatabase": "^0.0.1"
   },
   "autoload": {
     "psr-4": {
-      "Leoalmar\\CodeTags\\": "src/CodeTags",
-      "Leoalmar\\CodeDatabase\\": "../codedatabase/src/CodeDatabase/"
+      "Leoalmar\\CodeTags\\": "src/CodeTags"
     }
   },
   "require-dev": {
